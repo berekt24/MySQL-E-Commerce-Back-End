@@ -8,7 +8,7 @@ router.get('/', async (req, res) => {
   // be sure to include its associated Products
   try {
     const categoryData = await Category.findAll({
-      include: [{ model: Product }], 
+      include: [{ model: Product }],
     });
     res.status(200).json(categoryData);
   } catch (err) {
@@ -54,7 +54,7 @@ router.put('/:id', (req, res) => {
       // All the fields you can update and the data attached to the request body.
       id: req.body.id,
       category_name: req.body.category_name,
-     
+
     },
     {
       // Gets the categories based on the id given in the request parameters
