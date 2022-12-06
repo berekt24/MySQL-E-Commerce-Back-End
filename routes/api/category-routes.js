@@ -36,38 +36,31 @@ router.get('/:id', async (req, res) => {
 });
 
 router.post('/', async (req, res) => {
-  // create a new category
   try {
-    const locationData = await Category.create({
-      category_id: req.body.category_id,
-    });
-    res.status(200).json(locationData);
+    const categoryData = await Category.create(req.body);
+    // 200 status code means the request is successful
+    res.status(200).json(categoryData);
   } catch (err) {
+    // 400 status code means the server could not understand the request
     res.status(400).json(err);
   }
 });
 
-router.put('/:id', (req, res) => {
-  // update a category by its `id` value
-  Category.update(
-    {
-      // All the fields you can update and the data attached to the request body.
-      id: req.body.id,
-      category_name: req.body.category_name,
-
-    },
-    {
-      // Gets the categories based on the id given in the request parameters
+router.put('/:id', async (req, res) => {
+  try {
+    const categoryData = await Category.update(req.body, {
       where: {
         id: req.params.id,
       },
+    });
+    if (!categoryData[0]) {
+      res.status(404).json({ message: 'No category with this id!' });
+      return;
     }
-  )
-    .then((updatedCategory) => {
-      // Sends the updated category as a json response
-      res.json(updatedCategory);
-    })
-    .catch((err) => res.json(err));
+    res.status(200).json(categoryData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 router.delete('/:id', async (req, res) => {
