@@ -18,7 +18,7 @@ This project's purpose is to build the back end for an e-commerce site by modify
     Open terminal, type 'npm start' to create the tables and 'npm run seed' to seed the tables .
 
   ## Video Walkthrough 
-
+https://drive.google.com/file/d/1Coj98fotsWH5Yojt7rnkZkAQ7bZYQ-0m/view
 
   ## Questions
 Github: https://github.com/berekt24
