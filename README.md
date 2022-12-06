@@ -21,5 +21,6 @@ This project's purpose is to build the back end for an e-commerce site by modify
 
 
   ## Questions
-        Github: https://github.com/berekt24
-        Email: bashenafi35@gmail.com
+  
+    Github: https://github.com/berekt24
+    Email: bashenafi35@gmail.com
